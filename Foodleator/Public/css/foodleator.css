@@ -1,0 +1,24 @@
+@font-face {
+	/* No offense Apple, the default unicode pizza looks unappetizing */
+	font-family: "Symbola";
+	src: url('/font/pizza.ttf') format("truetype");
+}
+
+#pizza {
+	font-family: "Symbola";
+	margin-right: .5em; 
+}
+
+.loader {
+	margin: 0 .5em;
+	display: inline-block;
+}
+
+.loader > img {
+	margin-right: .5em;
+	vertical-align: middle;
+}
+
+.loader-done {
+	display: none;
+}
