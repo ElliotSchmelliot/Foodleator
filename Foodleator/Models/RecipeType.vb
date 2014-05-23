@@ -3,5 +3,5 @@ Public Class RecipeType
     Public Property RecipeTypeID As Integer
     Public Property RecipeTypeName As String
 
-    Public Overridable Property RecipeClassifications As ICollection(Of RecipeClassification)
+    'Public Overridable Property RecipeClassifications As ICollection(Of RecipeClassification)
 End Class

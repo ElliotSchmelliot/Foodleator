@@ -9,6 +9,6 @@ Public Class RecipeClassification
     <Key()>
     Public Property RecipeTypeID As Integer
 
-    Public Overridable Property Recipe As Recipe
-    Public Overridable Property RecipeType As RecipeType
+    'Public Overridable Property Recipe As Recipe
+    'Public Overridable Property RecipeType As RecipeType
 End Class

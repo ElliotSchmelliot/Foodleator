@@ -18,16 +18,26 @@
 
 
     Function Recipes() As ActionResult
-        Return Json(New With {
-                    .RecipeName = "sd"
-                    }, JsonRequestBehavior.AllowGet)
+        'Return Json(db.Recipes, JsonRequestBehavior.AllowGet)
+
+        Dim recs As List(Of TempRecipe) = New List(Of TempRecipe)
+        For Each rec As Foodleator.Recipe In db.Recipes
+            recs.Add(New TempRecipe With {.RecipeID = rec.RecipeID, .RecipeName = rec.RecipeName, .EntryDate = rec.EntryDate.Month & "/" & rec.EntryDate.Day & "/" & rec.EntryDate.Year})
+        Next
+        Return Json(recs, JsonRequestBehavior.AllowGet)
+
+        'Return Json(From obj In db.Recipes Select temp = New With {.Id = obj.RecipeID, .Name = obj.RecipeName, .EntryDate = obj.EntryDate.ToShortDateString} _
+        ', JsonRequestBehavior.AllowGet)
+
+        'Dim results As System.Data.Entity.Infrastructure.DbSqlQuery(Of Foodleator.Recipe) = db.Recipes.SqlQuery("SELECT recipeID, recipeName, entryDate FROM Recipe")
+        'Dim list As List(Of Foodleator.Recipe) = results.ToList
+        'Return Json(list, JsonRequestBehavior.AllowGet)
     End Function
 
-    Function RecipeTypes() As ActionResult
-        Return Json(db.RecipeTypes, JsonRequestBehavior.AllowGet)
-    End Function
+    Private Class TempRecipe
+        Public Property RecipeID As Integer
+        Public Property RecipeName As String
+        Public Property EntryDate As String
+    End Class
 
-    Function RecipeClassifications() As ActionResult
-        Return Json(db.RecipeClassifications, JsonRequestBehavior.AllowGet)
-    End Function
 End Class
