@@ -9,7 +9,7 @@ Public Class DataContext
     Public Property RecipeClassifications As DbSet(Of RecipeClassification)
 
     Public Sub New()
-        MyBase.New("Foodleator")
+        MyBase.New("FoodleatorCompact")
         System.Data.Entity.Database.SetInitializer(Of DataContext)(Nothing)
     End Sub
 
